@@ -1,0 +1,394 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header {
+  text-align: center;
+  width: 40%;
+  border-radius: 30px;
+  padding: 10px;
+
+  background: linear-gradient(
+    to right bottom,
+    rgba(255, 255, 255, 0.7),
+    rgba(255, 255, 255, 0.3)
+  );
+}
+
+footer {
+  text-align: center;
+  width: 30%;
+  border-radius: 30px;
+  padding: 10px;
+  margin: 0 auto;
+
+  background: linear-gradient(
+    to right bottom,
+    rgba(255, 255, 255, 0.7),
+    rgba(255, 255, 255, 0.3)
+  );
+
+  font-size: 0.8rem;
+}
+
+footer a {
+  text-decoration: none;
+  color: #111;
+}
+
+ul {
+  margin-left: 0;
+  list-style: none;
+}
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 30px;
+  background: linear-gradient(
+    to right bottom,
+    rgba(255, 255, 255, 0.7),
+    rgba(255, 255, 255, 0.3)
+  );
+}
+
+nav .main-nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 50%;
+}
+
+nav .side-nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 30%;
+}
+
+nav a {
+  text-decoration: 0;
+  color: #111;
+}
+
+#login,
+#reg {
+  min-height: 100vh;
+  padding: 4%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(to right top, #65dfc9, #6cdbeb);
+}
+
+#login form,
+#reg form {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 400px;
+  border-radius: 30px;
+  padding: 10px;
+
+  background: linear-gradient(
+    to left bottom,
+    rgba(255, 255, 255, 0.7),
+    rgba(255, 255, 255, 0.3)
+  );
+
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+#login .title,
+#reg .title {
+  padding: 10px;
+  background: linear-gradient(
+    to left bottom,
+    rgba(255, 255, 255, 0.7),
+    rgba(255, 255, 255, 0.3)
+  );
+  border-radius: 30px;
+  margin-bottom: 20px;
+  text-align: center;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+#login form label,
+#reg form label {
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+
+#login form input,
+#reg form input {
+  margin: 10px auto;
+  width: 60%;
+  border: 2px solid #ffb4b4;
+  border-radius: 20px;
+}
+
+#login form .buttons,
+#reg form .buttons {
+  padding: 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#login form .buttons button,
+#reg form .buttons button {
+  width: 30%;
+  border: 2px solid #ffb4b4;
+  border-radius: 20px;
+  font-weight: 600;
+  padding: 8px;
+  cursor: pointer;
+}
+
+#home {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  background: linear-gradient(to right top, #3f3fb5, #02d4ff);
+}
+
+#home form {
+  padding: 40px;
+  width: 80%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+#home .upper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #000;
+  border-radius: 30px;
+  padding: 20px;
+  margin-bottom: 40px;
+  background: linear-gradient(
+    to right bottom,
+    rgba(255, 255, 255, 0.7),
+    rgba(255, 255, 255, 0.3)
+  );
+}
+
+#home .upper #fioLabel {
+  font-size: 1.2em;
+  font-weight: 600;
+  padding: 10px;
+}
+
+#home .upper #fio {
+  width: 60%;
+  margin-bottom: 40px;
+  border-radius: 20px;
+}
+
+#home .upper h3 {
+  margin-bottom: 20px;
+}
+
+#home .upper .doctors-inputs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px;
+}
+
+#home .upper .doctors-input {
+  border: 2px solid #111;
+  padding: 10px;
+  border-radius: 10px;
+  background: #fff;
+}
+
+#home .upper .doctors-input input {
+  margin-right: 10px;
+}
+
+#home .form {
+  background: linear-gradient(
+    to right bottom,
+    rgba(255, 255, 255, 0.7),
+    rgba(255, 255, 255, 0.3)
+  );
+  border-radius: 30px;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+#home .form h2 {
+  text-align: center;
+  padding: 20px;
+}
+
+#home .question {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+#home .question p {
+  padding: 10px;
+}
+
+#home .question-input input {
+  margin-right: 4px;
+}
+
+#home .question-input label {
+  padding: 10px;
+}
+
+#home form button {
+  color: #000;
+  font-weight: 600;
+  display: block;
+  margin: 20px auto;
+  border-radius: 10px;
+  padding: 10px;
+  background: linear-gradient(
+    to right bottom,
+    rgba(255, 255, 255, 0.8),
+    rgba(255, 255, 255, 0.6)
+  );
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+#about {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: linear-gradient(90deg, #7373e0 0%, #a84bf2 100%);
+}
+
+#about main {
+  display: grid;
+  grid-template-areas:
+    "title title"
+    "desc reviews"
+    "desc reviews";
+
+  width: 600px;
+  margin: 0 auto;
+  margin-bottom: 40px;
+}
+
+#about main h2 {
+  grid-area: title;
+  text-align: center;
+  padding: 20px;
+  border: 2px solid #000;
+  width: 40%;
+  margin: 40px auto;
+  border-radius: 30px;
+
+  background: linear-gradient(
+    to right bottom,
+    rgba(255, 255, 255, 0.7),
+    rgba(255, 255, 255, 0.3)
+  );
+}
+
+#about main .description {
+  grid-area: desc;
+  width: 300px;
+}
+
+#about main .description p {
+  border: 2px solid #000;
+  padding: 10px;
+  border-radius: 20px;
+  width: 100%;
+  margin: 0 auto;
+
+  background: linear-gradient(
+    to right bottom,
+    rgba(255, 255, 255, 0.7),
+    rgba(255, 255, 255, 0.3)
+  );
+}
+
+#about main .reviews {
+  grid-area: reviews;
+}
+
+#about main .reviews h3 {
+  border: 2px solid #000;
+  padding: 10px;
+  border-radius: 20px;
+  max-width: 40%;
+  text-align: center;
+  margin: 0 auto;
+
+  background: linear-gradient(
+    to right bottom,
+    rgba(255, 255, 255, 0.7),
+    rgba(255, 255, 255, 0.3)
+  );
+}
+
+#about main .review {
+  margin: 30px auto;
+  width: 70%;
+  border: 2px solid #000;
+  border-radius: 20px;
+  padding: 10px;
+
+  background: linear-gradient(
+    to right bottom,
+    rgba(255, 255, 255, 0.7),
+    rgba(255, 255, 255, 0.3)
+  );
+}
+
+#doctors {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(
+    90deg,
+    rgba(136, 195, 117, 1) 0%,
+    rgba(96, 249, 163, 1) 100%
+  );
+}
+
+#doctors .title {
+  padding: 20px;
+  margin-top: 40px;
+  border: 2px solid #000;
+  border-radius: 30px;
+
+  background: linear-gradient(
+    to right bottom,
+    rgba(255, 255, 255, 0.7),
+    rgba(255, 255, 255, 0.3)
+  );
+}
+
+#doctors .doctor {
+  margin: 30px auto;
+  padding: 10px;
+  width: 90%;
+  border: 2px solid #000;
+  border-radius: 20px;
+
+  background: linear-gradient(
+    to right bottom,
+    rgba(255, 255, 255, 0.7),
+    rgba(255, 255, 255, 0.3)
+  );
+}
