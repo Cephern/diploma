@@ -242,12 +242,14 @@ nav a {
   padding: 10px;
 }
 
-#home .question-input input {
-  margin-right: 4px;
+#home .question-input {
+  display: flex;
+  align-items: center;
 }
 
-#home .question-input label {
+#home .question-input p {
   padding: 10px;
+  cursor: pointer;
 }
 
 #home form button {
@@ -263,6 +265,20 @@ nav a {
     rgba(255, 255, 255, 0.6)
   );
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+#home form .question-input .selector {
+  width: 20px;
+  height: 20px;
+  background-color: #000;
+}
+
+#home form .question-input .selector.active {
+  background-color: #fff;
+}
+
+#home form .question-input .selector.hovered {
+  background-color: #fff;
 }
 
 #about {

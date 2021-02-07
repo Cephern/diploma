@@ -101,6 +101,22 @@ const Home = () => {
 
   const [doctors, setDoctors] = useState("");
 
+  const [answers, setAnswers] = useState([]);
+
+  const handleAnswers = async (answer) => {
+    if (answers.find((ans) => answer.name === ans.name)) {
+      answers.map((ans) => {
+        if (ans.name === answer.name) {
+          ans.num = answer.num;
+        }
+        return ans;
+      });
+      setAnswers(answers);
+    } else {
+      setAnswers([...answers, answer]);
+    }
+  };
+
   useEffect(() => {
     const abortCont = new AbortController();
 
@@ -109,11 +125,29 @@ const Home = () => {
       .then((doctors) => setDoctors(doctors));
   }, []);
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const abortCont = new AbortController();
+
+    fetch("http://localhost:5000/api/form", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+        signal: abortCont.signal,
+      },
+      body: JSON.stringify(answers),
+    })
+      .then((x) => x.json())
+      .then((data) => console.log(data))
+      .catch((err) => console.log(err));
+  };
+
   return (
     <div id="home">
       <Nav />
 
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className="upper">
           <label htmlFor="name" id="fioLabel">
             Ваше ФИО
@@ -143,6 +177,7 @@ const Home = () => {
                 asw2={question.asw2}
                 asw3={question.asw3}
                 asw4={question.asw4}
+                handleAnswers={handleAnswers}
               />
             ))}
           </ol>

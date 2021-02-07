@@ -31,4 +31,9 @@ app.get("/api/reviews", (req, res) => {
   Review.find().then((reviews) => res.json(reviews));
 });
 
+app.post("/api/form", (req, res) => {
+  console.log(({ ask1, ask2, fio } = req.body));
+  res.json("got it");
+});
+
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
