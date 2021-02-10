@@ -10,7 +10,9 @@ const About = () => {
   useEffect(() => {
     const abortCont = new AbortController();
 
-    fetch("http://localhost:5000/api/reviews", { signal: abortCont.signal })
+    fetch("https://safe-chamber-40959.herokuapp.com/api/reviews", {
+      signal: abortCont.signal,
+    })
       .then((x) => x.json())
       .then((reviews) => setReviews(reviews))
       .catch((err) => console.log(err));
