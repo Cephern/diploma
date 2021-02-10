@@ -12,15 +12,6 @@ const Nav = () => {
           <a href="/about">О Нас</a>
         </li>
       </ul>
-
-      <ul className="side-nav">
-        <li>
-          <a href="/login">Войти</a>
-        </li>
-        <li>
-          <a href="/reg">Регистрация</a>
-        </li>
-      </ul>
     </nav>
   );
 };

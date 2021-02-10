@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const Doctor = require("./models/Doctor");
 const Review = require("./models/Review");
 const cors = require("cors");
+const path = require("path");
 
 const app = express();
 
@@ -32,8 +33,21 @@ app.get("/api/reviews", (req, res) => {
 });
 
 app.post("/api/form", (req, res) => {
-  console.log(({ ask1, ask2, fio } = req.body));
-  res.json("got it");
+  console.log(({ answers, selectedDoctor, fio } = req.body));
+  res.json({
+    answers,
+    selectedDoctor,
+    fio,
+    diagnosis: ["кариес", "пульпит", "периодонтит"],
+  });
 });
+
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+  });
+}
 
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));

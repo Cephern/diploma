@@ -100,8 +100,10 @@ const Home = () => {
   ]);
 
   const [doctors, setDoctors] = useState("");
+  const [selectedDoctor, setSelectedDoctor] = useState("");
 
   const [answers, setAnswers] = useState([]);
+  const [fio, setFio] = useState("");
 
   const handleAnswers = async (answer) => {
     if (answers.find((ans) => answer.name === ans.name)) {
@@ -117,6 +119,10 @@ const Home = () => {
     }
   };
 
+  const handleChange = (e) => {
+    setFio(e.target.value);
+  };
+
   useEffect(() => {
     const abortCont = new AbortController();
 
@@ -124,6 +130,8 @@ const Home = () => {
       .then((x) => x.json())
       .then((doctors) => setDoctors(doctors));
   }, []);
+
+  const [result, setResult] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -136,10 +144,10 @@ const Home = () => {
         "Access-Control-Allow-Origin": "*",
         signal: abortCont.signal,
       },
-      body: JSON.stringify(answers),
+      body: JSON.stringify({ answers, selectedDoctor, fio }),
     })
       .then((x) => x.json())
-      .then((data) => console.log(data))
+      .then((data) => setResult(data))
       .catch((err) => console.log(err));
   };
 
@@ -152,12 +160,16 @@ const Home = () => {
           <label htmlFor="name" id="fioLabel">
             Ваше ФИО
           </label>
-          <input type="text" id="fio" />
+          <input type="text" id="fio" onChange={handleChange} value={fio} />
           <h3>Ваш Врач</h3>
           <div className="doctors-inputs">
             {doctors ? (
               doctors.map((doctor) => (
-                <DoctorsInput doctorName={doctor.name} key={doctor._id} />
+                <DoctorsInput
+                  doctorName={doctor.name}
+                  setSelectedDoctor={setSelectedDoctor}
+                  key={doctor._id}
+                />
               ))
             ) : (
               <div className="loading">Loading...</div>
@@ -184,6 +196,28 @@ const Home = () => {
         </div>
         <button>Отправить</button>
       </form>
+
+      <div className="result">
+        {result ? (
+          <div className="result-inner">
+            <p>
+              {result.fio
+                ? `Результаты для: ${result.fio}`
+                : "Результаты для: Аноним"}
+            </p>
+            <p>
+              {result.selectedDoctor
+                ? `Ваш врач: ${result.selectedDoctor}`
+                : `Ваш врач: еще не выбран`}
+            </p>
+            <p>{`Ваш предварительный диагноз: ${result.diagnosis.join(
+              ", "
+            )}`}</p>
+          </div>
+        ) : (
+          ""
+        )}
+      </div>
 
       <Footer />
     </div>

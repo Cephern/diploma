@@ -211,10 +211,17 @@ nav a {
   padding: 10px;
   border-radius: 10px;
   background: #fff;
+  cursor: pointer;
+  transition: all 0.2s ease-in;
 }
 
-#home .upper .doctors-input input {
-  margin-right: 10px;
+#home .upper .doctors-input:hover {
+  transform: scale(1.05);
+}
+
+#home .upper .doctors-input.selected {
+  transform: scale(1.1);
+  color: green;
 }
 
 #home .form {
@@ -252,6 +259,20 @@ nav a {
   cursor: pointer;
 }
 
+#home form .question-input .selector {
+  width: 14px;
+  height: 14px;
+  background-color: #000;
+}
+
+#home form .question-input .selector.active {
+  background-color: #fff;
+}
+
+#home form .question-input .selector.hovered {
+  background-color: #fff;
+}
+
 #home form button {
   color: #000;
   font-weight: 600;
@@ -267,18 +288,25 @@ nav a {
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-#home form .question-input .selector {
-  width: 20px;
-  height: 20px;
-  background-color: #000;
+#home .result {
+  border-radius: 20px;
+  padding: 10px;
+  margin-bottom: 20px;
+
+  background: linear-gradient(
+    to right bottom,
+    rgba(255, 255, 255, 0.8),
+    rgba(255, 255, 255, 0.6)
+  );
 }
 
-#home form .question-input .selector.active {
-  background-color: #fff;
+#home .result .result-inner {
+  width: 80%;
+  margin: 0 auto;
 }
 
-#home form .question-input .selector.hovered {
-  background-color: #fff;
+#home .result-inner p {
+  padding: 10px;
 }
 
 #about {
