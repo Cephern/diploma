@@ -183,7 +183,7 @@ const Home = () => {
 
         <div className="form">
           <h2>Форма</h2>
-          <ol className="form-inputs">
+          <ul className="form-inputs">
             {questions.map((question) => (
               <Question
                 key={question.id}
@@ -196,7 +196,7 @@ const Home = () => {
                 handleAnswers={handleAnswers}
               />
             ))}
-          </ol>
+          </ul>
         </div>
         <button>Отправить</button>
       </form>

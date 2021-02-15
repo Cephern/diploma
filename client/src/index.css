@@ -2,10 +2,10 @@
 
 :root {
   --page-color: #111;
-  --main-outer-color: #f4f4f4;
-  --main-inner-color: #383e56;
-  --input-color: #e6d5b8;
-  --nav-links-color: #1687a7;
+  --main-outer-color: #f6f6f6;
+  --main-inner-color: #58391c;
+  --input-color: #eae3c8;
+  --nav-links-color: #f7f7e8;
 }
 
 * {
@@ -22,19 +22,18 @@ nav {
   width: 60%;
   margin: 0 auto;
   padding: 10px;
-  border-radius: 30px;
-  background: #f4f4f4;
+  border-bottom: 2px solid #000;
 }
 
 nav li {
   background: var(--nav-links-color);
   border-radius: 10px;
   padding: 8px 10px;
+  box-shadow: 2px 2px 4px #000, -2px -2px 4px #000;
 }
 
 nav li a {
-  color: #fff;
-  text-shadow: 1px 1px 2px black, 1px 1px 2px black;
+  color: #000;
 }
 
 footer {
@@ -77,26 +76,35 @@ nav a {
   justify-content: space-between;
   align-items: center;
   position: relative;
-  background: var(--page-color);
+  background-image: url("./images/backgrounds/home.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
 }
 
 #home form {
   padding: 40px;
-  width: 70%;
-  max-width: 800px;
+  width: 100%;
+  max-width: 1000px;
   margin: 0 auto;
 }
 
 #home .upper {
+  width: 60%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: 2px solid #000;
   border-radius: 30px;
   padding: 20px;
+  margin: 0 auto;
   margin-bottom: 40px;
-  background: var(--main-outer-color);
+  background: linear-gradient(
+    to left bottom,
+    rgba(255, 255, 255, 0.4),
+    rgba(255, 255, 255, 0.7)
+  );
+  backdrop-filter: blur(1em);
 }
 
 #home .upper .fio-wrap {
@@ -161,7 +169,13 @@ nav a {
   box-shadow: 4px 4px 4px rgba(255, 255, 255, 0.5),
     -4px -4px 4px rgba(255, 255, 255, 0.5);
   padding: 10px;
-  background-color: var(--main-outer-color);
+  background-color: #fff;
+  background: linear-gradient(
+    to left bottom,
+    rgba(255, 255, 255, 0.4),
+    rgba(255, 255, 255, 0.7)
+  );
+  backdrop-filter: blur(1em);
 }
 
 #home .form h2 {
@@ -169,10 +183,15 @@ nav a {
   padding: 20px;
 }
 
+#home .form-inputs {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
 #home .question {
   display: flex;
   flex-direction: column;
-  padding: 20px;
+  padding: 10px;
   border: 2px solid #111;
   border-radius: 20px;
   margin: 20px auto;
@@ -200,7 +219,7 @@ nav a {
 }
 
 #home .question-input p {
-  padding: 10px;
+  padding: 8px;
   cursor: pointer;
   text-align: center;
   width: 100%;
@@ -209,8 +228,8 @@ nav a {
 }
 
 #home form .question-input .selector {
-  width: 25px;
-  height: 25px;
+  width: 20px;
+  height: 20px;
   background-color: #fff;
   border-radius: 50%;
   margin-left: 10px;
@@ -235,9 +254,9 @@ nav a {
   padding: 14px;
   background: var(--nav-links-color);
   cursor: pointer;
-  color: #f4f4f4;
-  text-shadow: 1px 1px 2px black, 1px 1px 2px black;
+  color: #000;
   outline: 0;
+  box-shadow: 4px 4px 4px #000;
 }
 
 #home form button:hover {
@@ -271,7 +290,10 @@ nav a {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background: linear-gradient(90deg, #7373e0 0%, #a84bf2 100%);
+  background-image: url("./images/backgrounds/about.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
 }
 
 #about main {
@@ -360,24 +382,18 @@ nav a {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  background: linear-gradient(
-    90deg,
-    rgba(136, 195, 117, 1) 0%,
-    rgba(96, 249, 163, 1) 100%
-  );
+  background-image: url("./images/backgrounds/doctors.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
 }
 
 #doctors .title {
   padding: 20px;
   margin-top: 40px;
-  border: 2px solid #000;
   border-radius: 30px;
-
-  background: linear-gradient(
-    to right bottom,
-    rgba(255, 255, 255, 0.7),
-    rgba(255, 255, 255, 0.3)
-  );
+  color: #fff;
+  background: #00917c;
 }
 
 #doctors .doctor {
@@ -386,10 +402,5 @@ nav a {
   width: 90%;
   border: 2px solid #000;
   border-radius: 20px;
-
-  background: linear-gradient(
-    to right bottom,
-    rgba(255, 255, 255, 0.7),
-    rgba(255, 255, 255, 0.3)
-  );
+  background: #cfdac8;
 }

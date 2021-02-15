@@ -27,7 +27,7 @@ const Doctors = () => {
         {doctors ? (
           doctors.map((doctor) => <Doctor doctor={doctor} key={doctor._id} />)
         ) : (
-          <div className="loading">Loading...</div>
+          <div className="loading">Загружаем...</div>
         )}
       </div>
 
