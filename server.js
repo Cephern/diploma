@@ -22,6 +22,8 @@ mongoose
   .then(() => console.log("MongoDB connected"))
   .catch((err) => console.log(err));
 
+app.use(express.urlencoded({ extended: true }));
+
 app.get("/api/doctors", (req, res) => {
   Doctor.find()
     .sort({ likes: -1 })
@@ -29,7 +31,23 @@ app.get("/api/doctors", (req, res) => {
 });
 
 app.get("/api/reviews", (req, res) => {
-  Review.find().then((reviews) => res.json(reviews));
+  Review.find()
+    .sort({ createdAt: -1 })
+    .then((reviews) => res.json(reviews));
+});
+
+app.post("/api/reviews", (req, res) => {
+  console.log(req.body);
+
+  const review = new Review({
+    reviewer: req.body.fio,
+    review: req.body.review,
+  });
+
+  review.save({
+    reviewer: req.body.fio,
+    review: req.body.review,
+  });
 });
 
 app.post("/api/form", (req, res) => {

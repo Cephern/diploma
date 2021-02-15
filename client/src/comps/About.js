@@ -7,6 +7,31 @@ import Review from "./Review";
 const About = () => {
   const [reviews, setReviews] = useState("");
 
+  const [fio, setFio] = useState("");
+
+  const handleFio = (e) => {
+    setFio(e.target.value);
+  };
+  const [review, setReview] = useState("");
+
+  const handleReview = (e) => {
+    setReview(e.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    const abortCont = new AbortController();
+
+    fetch("https://safe-chamber-40959.herokuapp.com/api/reviews", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+        signal: abortCont.signal,
+      },
+      body: JSON.stringify({ fio, review }),
+    }).catch((err) => console.log(err));
+  };
+
   useEffect(() => {
     const abortCont = new AbortController();
 
@@ -14,7 +39,7 @@ const About = () => {
       signal: abortCont.signal,
     })
       .then((x) => x.json())
-      .then((reviews) => setReviews(reviews))
+      .then((reviews) => setReviews(reviews.slice(0, 4)))
       .catch((err) => console.log(err));
   }, []);
 
@@ -51,7 +76,7 @@ const About = () => {
           <h3>Отзывы</h3>
 
           <div className="reviews-inner">
-            {reviews ? (
+            {reviews.length > 0 ? (
               reviews.map((review) => (
                 <Review review={review} key={review._id} />
               ))
@@ -59,6 +84,20 @@ const About = () => {
               <div>Пока что тут пусто...</div>
             )}
           </div>
+
+          <form onSubmit={handleSubmit}>
+            <label htmlFor="fio">Отзыв от:</label>
+            <input type="text" value={fio} onChange={handleFio} />
+            <label htmlFor="review">Отзыв:</label>
+            <textarea
+              id="review"
+              cols="30"
+              rows="10"
+              value={review}
+              onChange={handleReview}
+            ></textarea>
+            <button>Отправить</button>
+          </form>
         </div>
       </main>
       <Footer />
