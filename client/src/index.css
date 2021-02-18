@@ -159,8 +159,9 @@ nav a {
 }
 
 #home .upper .doctors-input.selected {
-  color: #c62a88;
-  border: 2px solid #fb743e;
+  color: #000;
+  background-color: #f9d56e;
+  border: 2px solid #000;
 }
 
 #home .form {
@@ -300,6 +301,7 @@ nav a {
 
 #about main {
   display: grid;
+  grid-template-columns: repeat(2, 1fr);
   grid-template-areas:
     "title title"
     "desc desc"
@@ -326,7 +328,7 @@ nav a {
 #about main .description {
   grid-area: desc;
   width: 80%;
-  margin-bottom: 40px;
+  margin-bottom: 80px;
 }
 
 #about main .description p {
@@ -347,7 +349,7 @@ nav a {
   border: 2px solid #000;
   padding: 10px;
   border-radius: 20px;
-  width: 100%;
+  width: 60%;
   text-align: center;
   margin: 0 auto;
   box-shadow: 2px 2px 2px #0a043c;
@@ -363,6 +365,13 @@ nav a {
   box-shadow: 2px 2px 2px #0a043c;
 
   background: #fff;
+  width: 80%;
+  min-width: 300px;
+  justify-self: end;
+}
+
+#about main .review p {
+  line-break: anywhere;
 }
 
 #about .submit-review {
