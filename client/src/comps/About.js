@@ -84,21 +84,20 @@ const About = () => {
               <div>Пока что тут пусто...</div>
             )}
           </div>
-
-          <form onSubmit={handleSubmit}>
-            <label htmlFor="fio">Отзыв от:</label>
-            <input type="text" value={fio} onChange={handleFio} />
-            <label htmlFor="review">Отзыв:</label>
-            <textarea
-              id="review"
-              cols="30"
-              rows="10"
-              value={review}
-              onChange={handleReview}
-            ></textarea>
-            <button>Отправить</button>
-          </form>
         </div>
+        <form className="submit-review" onSubmit={handleSubmit}>
+          <label htmlFor="fio">Отзыв от:</label>
+          <input type="text" value={fio} onChange={handleFio} />
+          <label htmlFor="review">Отзыв:</label>
+          <textarea
+            id="review"
+            cols="30"
+            rows="10"
+            value={review}
+            onChange={handleReview}
+          ></textarea>
+          <button>Отправить</button>
+        </form>
       </main>
       <Footer />
     </div>
