@@ -4,6 +4,7 @@ const Doctor = require("./models/Doctor");
 const Review = require("./models/Review");
 const cors = require("cors");
 const path = require("path");
+const diagnosis = require("./diagnosis");
 
 const app = express();
 
@@ -51,12 +52,12 @@ app.post("/api/reviews", (req, res) => {
 });
 
 app.post("/api/form", (req, res) => {
-  console.log(({ answers, selectedDoctor, fio } = req.body));
+  const { answers, selectedDoctor, fio } = req.body;
+  const diagnos = diagnosis(answers);
   res.json({
-    answers,
     selectedDoctor,
     fio,
-    diagnosis: ["кариес", "пульпит", "периодонтит"],
+    diagnos,
   });
 });
 

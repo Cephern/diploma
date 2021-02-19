@@ -56,7 +56,7 @@ const Home = () => {
       id: 5,
       name: "color",
       body: "Опишите цвет беспокоящего зуба",
-      asw1: "не беспокоит",
+      asw1: "зуб отсутствует",
       asw2: "в цвете изменен, серый",
       asw3: "в цвете изменен, желтый",
       asw4: "в цвете не изменен",
@@ -137,6 +137,7 @@ const Home = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(answers);
     const abortCont = new AbortController();
 
     fetch("https://safe-chamber-40959.herokuapp.com/api/form", {
@@ -214,9 +215,7 @@ const Home = () => {
                 ? `Ваш врач: ${result.selectedDoctor}`
                 : `Ваш врач: еще не выбран`}
             </p>
-            <p>{`Ваш предварительный диагноз: ${result.diagnosis.join(
-              ", "
-            )}`}</p>
+            <p>{`Ваш предварительный диагноз: ${result.diagnos}`}</p>
           </div>
         ) : (
           ""
