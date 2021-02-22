@@ -1,15 +1,17 @@
+import { Link } from "react-router-dom";
+
 const Nav = () => {
   return (
     <nav>
       <ul className="main-nav">
         <li>
-          <a href="/">Главная</a>
+          <Link to="/">Главная</Link>
         </li>
         <li>
-          <a href="/doctors">Наши Врачи</a>
+          <Link to="/doctors">Наши Врачи</Link>
         </li>
         <li>
-          <a href="/about">О Нас</a>
+          <Link to="/about">О Нас</Link>
         </li>
       </ul>
     </nav>
