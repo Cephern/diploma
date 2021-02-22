@@ -21,7 +21,7 @@ const About = () => {
   const handleSubmit = (e) => {
     const abortCont = new AbortController();
 
-    fetch("https://safe-chamber-40959.herokuapp.com/api/reviews", {
+    fetch("https://nano-doc.herokuapp.com/api/reviews", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -35,7 +35,7 @@ const About = () => {
   useEffect(() => {
     const abortCont = new AbortController();
 
-    fetch("https://safe-chamber-40959.herokuapp.com/api/reviews", {
+    fetch("https://nano-doc.herokuapp.com/api/reviews", {
       signal: abortCont.signal,
     })
       .then((x) => x.json())

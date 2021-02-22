@@ -10,7 +10,7 @@ const Doctors = () => {
   useEffect(() => {
     const abortCont = new AbortController();
 
-    fetch("https://safe-chamber-40959.herokuapp.com/api/doctors", {
+    fetch("https://nano-doc.herokuapp.com/api/doctors", {
       signal: abortCont.signal,
     })
       .then((x) => x.json())
