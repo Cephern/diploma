@@ -20,7 +20,6 @@ const About = () => {
 
   const handleSubmit = (e) => {
     const abortCont = new AbortController();
-
     fetch("https://nano-doc.herokuapp.com/api/reviews", {
       method: "POST",
       headers: {

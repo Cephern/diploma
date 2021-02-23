@@ -134,24 +134,31 @@ const Home = () => {
   }, []);
 
   const [result, setResult] = useState("");
+  const [isOpen, setIsOpen] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(answers);
-    const abortCont = new AbortController();
 
-    fetch("https://nano-doc.herokuapp.com/api/form", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "*",
-        signal: abortCont.signal,
-      },
-      body: JSON.stringify({ answers, selectedDoctor, fio }),
-    })
-      .then((x) => x.json())
-      .then((data) => setResult(data))
-      .catch((err) => console.log(err));
+    if (answers.length < 10) {
+      setIsOpen(true);
+      setTimeout(setIsOpen, 1000, false);
+      return;
+    } else {
+      const abortCont = new AbortController();
+
+      fetch("https://nano-doc.herokuapp.com/api/form", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+          signal: abortCont.signal,
+        },
+        body: JSON.stringify({ answers, selectedDoctor, fio }),
+      })
+        .then((x) => x.json())
+        .then((data) => setResult(data))
+        .catch((err) => console.log(err));
+    }
   };
 
   return (
@@ -203,6 +210,7 @@ const Home = () => {
       </form>
 
       <div className="result">
+        {isOpen ? <div>Нужно ответить на все вопросы</div> : ""}
         {result ? (
           <div className="result-inner">
             <p>
